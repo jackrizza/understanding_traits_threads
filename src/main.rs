@@ -27,15 +27,14 @@ fn main() {
 
     // initialized test
     let start_time = now.elapsed();
-    println!("Starting tests    @ {:?}", start_time);
     
     test_push.join().unwrap();
-
+    let push_time = now.elapsed();
     // after multiple pushes
-    println!("Test Push Time    : {:?}", now.elapsed() - start_time);
+    println!("Test Push Time    : {:?}", push_time - start_time);
     
     test_update.join().unwrap();
 
     // after multiple updates
-    println!("Test Update Time  : {:?}", now.elapsed() - start_time);
+    println!("Test Update Time  : {:?}", now.elapsed() - push_time);
 }
